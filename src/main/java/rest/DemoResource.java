@@ -55,7 +55,7 @@ public class DemoResource {
         try {
             TypedQuery<User> query = em.createQuery("select u from User u", entities.User.class);
             List<User> users = query.getResultList();
-            return "[" + users.size() + "]";
+            return "[" + users.size() + "]" ;
         } finally {
             em.close();
         }
@@ -82,7 +82,7 @@ public class DemoResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("jokes")
-    @RolesAllowed("admin")
+    @RolesAllowed("user")
     public String getJokes() throws IOException {
         JokeFetcher jf = new JokeFetcher();
         
